@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.mary-active-menu{
+    background: linear-gradient(to right, #a855f7, #f9a8d4);
+    color: aliceblue;
+}
+.borda-gradiente {
+    background: linear-gradient(to right, #7c3aedaa, #f472b5aa); /* Gradiente para a borda */
+    padding: 2px; /* Espessura da borda */
+    border-radius: 8px; /* Arredondamento da borda */
+    background-clip: padding-box, border-box;
+    -webkit-background-clip: padding-box, border-box;
+    position: relative;
+}
+
+.borda-gradiente-inner {
+    padding: 20px; /* Espaço interno */
+    border-radius: 6px; /* Arredondamento do conteúdo */
+    
+}
+
+.card .font-bold{
+    font-size: 1.2rem;
+    line-height: 2rem;
+}
+
+.card .pb-5{
+    padding-bottom: 10px;
+}
+
+#cardapio-de-bebidas{
+    margin-bottom: 0px;
+}
