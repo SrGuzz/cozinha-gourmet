@@ -33,3 +33,7 @@
 #cardapio-de-bebidas{
     margin-bottom: 0px;
 }
+
+.borda-gradiente .flex{
+    padding: 0;
+}
