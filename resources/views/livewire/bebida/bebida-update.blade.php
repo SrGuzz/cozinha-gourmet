@@ -1,6 +1,6 @@
 <div>
     @if ($modalUpdate)
-        <x-modal wire:model="modalUpdate" persistent>
+        <x-drawer wire:model="modalUpdate" class="w-11/12 lg:w-1/3" title="Editar bebida do Cardápio" right>
             <x-form wire:submit="save">
                 <x-input 
                     label="Nome" 
@@ -47,6 +47,8 @@
                     />
                 </x-slot:actions>
             </x-form>
-        </x-modal>
+        </x-drawer>
     @endif
+
+    @livewire('bebida.bebida-destroy')
 </div>

@@ -40,6 +40,11 @@ class BebidaUpdate extends Component
         $this->modalUpdate = true;
     }
 
+    #[On('bebida::close-update')]
+    public function closeUpdateModal(){
+        $this->modalUpdate = false;
+    }
+
     public function trueFalse($valor){
         return $valor == 1;
     }
