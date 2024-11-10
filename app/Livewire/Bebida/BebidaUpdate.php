@@ -65,7 +65,27 @@ class BebidaUpdate extends Component
 
         $this->dispatch('bebida::refresh');
         $this->modalUpdate = false;
-        $this->success('Feito!', 'Bebida cadastrada com sucesso.', position: 'toast-bottom toast-start', icon: 'o-face-smile' );
+        $this->success('Feito!', 'Bebida atualizada com sucesso.', position: 'toast-bottom toast-start', icon: 'o-face-smile' );
+    }
+
+    #[On('bebida::active')]
+    public function active($id){
+        $bebida = Bebida::findOrFail($id);
+        $bebida->update([
+            'active' => 1,
+        ]);
+        $this->dispatch('bebida::refresh');
+        $this->success('Feito!', 'Bebida ativada com sucesso.', position: 'toast-bottom toast-start', icon: 'o-face-smile' );
+    }
+
+    #[On('bebida::disabled')]
+    public function disabled($id){
+        $bebida = Bebida::findOrFail($id);
+        $bebida->update([
+            'active' => 0,
+        ]);
+        $this->dispatch('bebida::refresh');
+        $this->success('Feito!', 'Bebida desativada com sucesso.', position: 'toast-bottom toast-start', icon: 'o-face-smile' );
     }
 
     public function rules(){

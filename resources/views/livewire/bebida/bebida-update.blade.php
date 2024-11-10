@@ -27,19 +27,17 @@
                         <img src="{{ $photo }}" class="h-40 w-80 rounded-lg" />
 
                 </x-file>
-
-                <x-toggle 
-                    right
-                    tight
-                    label="Ativo" 
-                    wire:model="active"
-                />
              
                 <x-slot:actions>
                     <x-button 
+                        icon="o-trash" 
+                        wire:click="$dispatchTo('bebida.bebida-destroy', 'bebida::open-destroy', { id: {{ $id }} })" 
+                        class="btn-sm text-error" 
+                    />
+                    <x-button 
                         label="Cancelar" 
                         @click="$wire.modalUpdate = false" 
-                        class="btn-sm btn-error"
+                        class="btn-sm"
                     />
                     <x-button 
                         label="Salvar" 

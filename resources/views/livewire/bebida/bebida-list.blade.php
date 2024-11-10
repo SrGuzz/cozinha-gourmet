@@ -15,15 +15,26 @@
                             <img src="{{$bebida->photo}}"/>
                         </x-slot:figure>
                         <x-slot:actions>
+                            @if (!$bebida->active)
+                                <x-button 
+                                    icon="o-face-smile"
+                                    label="Ativar" 
+                                    wire:click="$dispatchTo('bebida.bebida-update', 'bebida::active', { id: {{ $bebida->id }} })" 
+                                    class="btn-sm text-success" 
+                                />
+                            @else
+                                <x-button 
+                                    icon="o-face-frown"
+                                    label="Desativar" 
+                                    wire:click="$dispatchTo('bebida.bebida-update', 'bebida::disabled', { id: {{ $bebida->id }} })" 
+                                    class="btn-sm text-error" 
+                                />
+                            @endif
+                            
                             <x-button 
                                 icon="o-pencil-square" 
                                 wire:click="$dispatchTo('bebida.bebida-update', 'bebida::open-update', { id: {{ $bebida->id }} })" 
                                 class="btn-sm text-warning" 
-                            />
-                            <x-button 
-                                icon="o-trash" 
-                                @click="$wire.myModal3 = true" 
-                                class="btn-sm text-error" 
                             />
                         </x-slot:actions>
                     </x-card>
