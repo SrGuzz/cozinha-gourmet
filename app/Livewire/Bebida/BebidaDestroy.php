@@ -27,7 +27,7 @@ class BebidaDestroy extends Component
         $this->dispatch('bebida::refresh');
         $this->modalDestroy = false;
         $this->dispatch('bebida::close-update');
-        $this->success('Feito!', 'Bebida atualizada com sucesso.', position: 'toast-bottom toast-start', icon: 'o-face-smile' );
+        $this->success('Feito!', 'Bebida deletada com sucesso.', position: 'toast-bottom toast-start', icon: 'o-face-smile' );
     }
 
     public function render()

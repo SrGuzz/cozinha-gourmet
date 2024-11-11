@@ -3,6 +3,7 @@
 namespace App\Livewire\Categoria;
 
 use App\Models\Categoria;
+use Livewire\Attributes\On;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -43,6 +44,7 @@ class CategoriaList extends Component
         ];
     }
 
+    #[On('categoria::refresh')]
     public function render()
     {
         return view('livewire.categoria.categoria-list', [
