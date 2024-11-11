@@ -73,6 +73,9 @@
                     <x-menu-item  link="/bebidasCreate" >
                         <i class="fas fa-glass-martini-alt"></i> ﾠBebidas
                     </x-menu-item>
+                    <x-menu-item  link="/categoriaCreate" >
+                        <i class="fas fa-list"></i> ﾠCategoria
+                    </x-menu-item>
                 </x-menu-sub>
             </x-menu>
         </x-slot:sidebar>

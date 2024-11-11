@@ -2,6 +2,7 @@
 
 use App\Livewire\Bebida\BebidaCreate;
 use App\Livewire\Bebida\BebidaList;
+use App\Livewire\Categoria\CategoriaList;
 use App\Livewire\Prato\PratoCreate;
 use Illuminate\Support\Facades\Route;
 
@@ -20,4 +21,6 @@ Route::get('/bebidas', BebidaList::class);
 
 Route::get('/pratosCreate', PratoCreate::class)->name('Adicionar Prato');
 
-Route::get('/bebidasCreate', BebidaCreate::class)->name('Adicionar Bebida');
+Route::get('/bebidasCreate', BebidaCreate::class);
+
+Route::get('/categoriaCreate', CategoriaList::class);
