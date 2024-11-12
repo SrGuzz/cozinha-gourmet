@@ -14,12 +14,12 @@
         <x-slot:actions>
             <x-button 
                 icon="o-plus" 
-                class="btn-primary btn-sm h-10 bg-gradient-to-r from-purple-500 to-pink-300 border-none" 
-                wire:click="$dispatchTo('categoria.categoria-create', 'categoria::open-create'})"
+                class="btn text-black btn-sm h-10 bg-gradient-to-r from-purple-500 to-pink-300 border-none" 
+                wire:click="$dispatchTo('categoria.categoria-create', 'categoria::open-create')"
             />
         </x-slot:actions>
-
     </x-header>
+    @livewire('categoria.categoria-create')
     
     <x-table :headers="$headers" :rows="$categorias" :sort-by="$sortBy" with-pagination >
         @scope('actions', $categoria)

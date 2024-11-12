@@ -8,5 +8,6 @@ class Categoria extends Model
 {
     protected $fillable = [
         'name',
+        'destino',
     ];
 }
