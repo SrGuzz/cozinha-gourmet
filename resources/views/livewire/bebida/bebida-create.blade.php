@@ -3,8 +3,7 @@
         title="Adicionar bebida ao Cardápio" 
         subtitle="Adicione itens novos ao cardápio da cozinha" 
         size="text-2xl" 
-        separator 
-        class="text-w"
+        separator
     />
 
     <x-form wire:submit="save">
@@ -13,14 +12,16 @@
             placeholder="Nome da bebida" 
             icon="o-bookmark" 
             wire:model="name"
+            class="border-red-500 focus:border-red-500 focus:outline-orange-500"
         />
         <x-select 
             label="Categoria" 
             icon="o-link" 
-            :options="$categorys" 
-            option-value="value"
-            option-label="label"
-            wire:model="category" 
+            :options="$categories" 
+            option-value="name"
+            option-label="name"
+            wire:model="category"
+            class="border-red-500 focus:border-red-500 focus:outline-orange-500" 
         />
         <x-input 
             label="Valor"  
@@ -28,6 +29,7 @@
             money 
             locale="pt-BR" 
             wire:model="value"
+            class="border-red-500 focus:border-red-500 focus:outline-orange-500"
         />
         <x-file 
             wire:model="photo" 

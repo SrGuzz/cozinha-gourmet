@@ -13,20 +13,21 @@
             placeholder="Nome do prato" 
             icon="o-bookmark" 
             wire:model="name"
+            class="border-red-500 focus:border-red-500 focus:outline-orange-500"
         />
         <x-input 
             label="Descrição" 
             placeholder="descrição do prato" 
             icon="o-bars-3-bottom-left" 
             wire:model="description"
+            class="border-red-500 focus:border-red-500 focus:outline-orange-500"
         />
         <x-select 
             label="Categoria" 
             icon="o-link" 
-            :options="$categorys" 
-            option-value="value"
-            option-label="label"
+            :options="$categories" 
             wire:model="category" 
+            class="border-red-500 focus:border-red-500 focus:outline-orange-500"
         />
         <x-input 
             label="Valor"  
@@ -34,6 +35,7 @@
             money 
             locale="pt-BR" 
             wire:model="value"
+            class="border-red-500 focus:border-red-500 focus:outline-orange-500"
         />
         <x-file 
             wire:model="photo" 

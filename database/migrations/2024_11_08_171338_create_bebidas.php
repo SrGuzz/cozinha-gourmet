@@ -15,10 +15,15 @@ return new class extends Migration
             $table->id();
             $table->string('name')->unique();
             $table->float('value');
-            $table->integer('category');
+            $table->unsignedBigInteger('category_id');
             $table->string('photo');
             $table->boolean('active')->default(1);
             $table->timestamps();
+
+            $table->foreign('category_id') // O campo em `bebidas` que é a chave estrangeira
+                  ->references('id') // O campo na tabela `categorias` que está sendo referenciado
+                  ->on('categorias') // A tabela que possui o campo de referência
+                  ->onDelete('restrict'); // Opção para nao apagar bebidas ao apagar o categorias
         });
     }
 

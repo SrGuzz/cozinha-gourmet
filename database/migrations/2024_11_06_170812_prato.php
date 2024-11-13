@@ -17,8 +17,13 @@ return new class extends Migration
             $table->string('description');
             $table->float('value');
             $table->string('photo');
-            $table->integer('category');
+            $table->unsignedBigInteger('category_id');
             $table->timestamps();
+
+            $table->foreign('category_id') 
+                  ->references('id') 
+                  ->on('categorias') 
+                  ->onDelete('restrict');
         });
     }
 

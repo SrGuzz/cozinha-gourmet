@@ -7,6 +7,7 @@
                     value="{{ $name }}" 
                     icon="o-bookmark"  
                     wire:model="name"
+                    class="border-red-500 focus:border-red-500 focus:outline-orange-500"
                 />
 
                 <x-input
@@ -15,6 +16,7 @@
                     prefix="R$"
                     money
                     locale="pt-BR" 
+                    class="border-red-500 focus:border-red-500 focus:outline-orange-500"
                 />
 
                 <x-file 

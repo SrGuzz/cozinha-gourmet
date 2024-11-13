@@ -11,6 +11,6 @@ class Prato extends Model
         'description',
         'value',
         'photo',
-        'category',
+        'category_id',
     ];
 }

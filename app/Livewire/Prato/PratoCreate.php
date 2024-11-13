@@ -2,10 +2,12 @@
 
 namespace App\Livewire\Prato;
 
+use App\Models\Categoria;
 use App\Models\Prato;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Mary\Traits\Toast;
+use Ramsey\Uuid\Type\Integer;
 
 class PratoCreate extends Component
 {
@@ -19,16 +21,14 @@ class PratoCreate extends Component
     public $photo;
     public $category;
 
-    public $categorys = [
-        ['label' => 'Sushi', 'value' => 1],
-        ['label' => 'Açai', 'value' => 2],
-        ['label' => 'Sanduiche', 'value' => 3]
-    ];
+    public $categories;
 
     public $caminhoImg = '/storage/pratos/exemple.webp';
 
     public function save()
     {
+        $this->category = intval($this->category);
+
         $this->validate();
 
         $filename = $this->photo->getClientOriginalName();
@@ -39,7 +39,7 @@ class PratoCreate extends Component
             'description' => $this->description,
             'value' => $this->value,
             'photo' => '/storage' . '/' . $path,
-            'category' => $this->category,
+            'category_id' => $this->category,
         ];
 
         Prato::create($prato);
@@ -48,7 +48,7 @@ class PratoCreate extends Component
 
     public function cancel(){
         $this->reset();
-        $this->category = $this->categorys[0]['value'];
+        $this->category = $this->categories[0]['name'];
     }
 
     public function rules(){
@@ -57,7 +57,7 @@ class PratoCreate extends Component
             'description' => 'required|string',
             'value' => 'required|numeric',
             'photo' => 'required|image|max:32768',
-            'category' => 'required|numeric',
+            'category' => 'required|exists:categorias,id',
         ];
     }
 
@@ -78,15 +78,17 @@ class PratoCreate extends Component
             'photo.max' => 'A imagem não deve exceder 32 MB. Escolha um arquivo menor.',
 
             'category.required' => 'O campo categoria é obrigatório. Por favor, preencha o categoria do prato.',
-            'category.numeric' => 'A categoria do prato deve ser numérico.',
+            'category.exists' => 'A categoria selecionada não é válida.',
         ];
     }
 
     public function mount(){
-        usort($this->categorys, function ($a, $b) {
-            return strcmp($a['label'], $b['label']);
+        $this->categories = Categoria::where('destino', 'pratos')->get()->toArray();
+
+        usort($this->categories, function ($a, $b) {
+            return strcmp($a['name'], $b['name']);
         });
-        $this->category = $this->categorys[0]['value'];
+        $this->category = $this->categories[0]['id'];
     }
 
     public function render()

@@ -26,12 +26,12 @@ class AppBrand extends Component
                     <!-- Hidden when collapsed -->
                     <div {{ $attributes->class(["hidden-when-collapsed"]) }}>
                         <div class=" items-center gap-2">
-                            <div class=" mx-auto w-2/4">
+                            <div class="hidden md:block mx-auto w-2/4">
                                 <img src="/storage/logo.png" class=" text-center"/>
                             </div>
                             
                             <div class=" mx-auto">
-                                <span class="ml-3 font-bold text-2xl bg-gradient-to-r from-purple-500 to-pink-300 bg-clip-text text-transparent ">
+                                <span class=" md:ml-3 font-bold text-2xl bg-gradient-to-r from-red-500 to-orange-300 bg-clip-text text-transparent ">
                                     Cozinha Gourmet
                                 </span>
                             </div>

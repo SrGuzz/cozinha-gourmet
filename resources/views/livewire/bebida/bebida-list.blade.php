@@ -7,7 +7,7 @@
     />
     <div class="flex flex-wrap">
         @foreach ($bebidas as $bebida)
-            <div class="p-2 w-1/4">
+            <div class="p-2 w-1/2 lg:w-1/4">
                 <div class="borda-gradiente">
                     <x-card title="{{$bebida->name}}" class="borda-gradiente-inner" >
                         R$ {{number_format($bebida->value, 2, ',', '.')}}
@@ -20,14 +20,14 @@
                                     icon="o-face-smile"
                                     label="Ativar" 
                                     wire:click="$dispatchTo('bebida.bebida-update', 'bebida::active', { id: {{ $bebida->id }} })" 
-                                    class="btn-sm text-success" 
+                                    class="btn-sm text-success ml-3" 
                                 />
                             @else
                                 <x-button 
                                     icon="o-face-frown"
                                     label="Desativar" 
                                     wire:click="$dispatchTo('bebida.bebida-update', 'bebida::disabled', { id: {{ $bebida->id }} })" 
-                                    class="btn-sm text-error" 
+                                    class="btn-sm text-error ml-3" 
                                 />
                             @endif
                             

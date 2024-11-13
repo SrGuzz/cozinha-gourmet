@@ -10,7 +10,7 @@ class Bebida extends Model
         'name',
         'value',
         'photo',
-        'category',
+        'category_id',
         'active',
     ];
 }

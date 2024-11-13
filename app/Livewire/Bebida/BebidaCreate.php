@@ -3,6 +3,7 @@
 namespace App\Livewire\Bebida;
 
 use App\Models\Bebida;
+use App\Models\Categoria;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Mary\Traits\Toast;
@@ -18,18 +19,7 @@ class BebidaCreate extends Component
     public $photo;
     public $category;
 
-    public $categorys = [
-        ['label' => 'Refrigerante', 'value' => 1],
-        ['label' => 'Suco Natural', 'value' => 2],
-        ['label' => 'Cerveja', 'value' => 3],
-        ['label' => 'Vinho', 'value' => 4],
-        ['label' => 'Coquetel', 'value' => 5],
-        ['label' => 'Café', 'value' => 6],
-        ['label' => 'Chá Gelado', 'value' => 7],
-        ['label' => 'Agua Mineral', 'value' => 8],
-        ['label' => 'Smoothie', 'value' => 9],
-        ['label' => 'Whisky', 'value' => 10]
-    ];    
+    public $categories;    
 
     public $caminhoImg = '/storage/bebidas/exemple-drink.webp';
 
@@ -53,7 +43,7 @@ class BebidaCreate extends Component
 
     public function cancel(){
         $this->reset();
-        $this->category = $this->categorys[0]['value'];
+        $this->category = $this->categories[0]['name'];
     }
 
     public function rules(){
@@ -82,10 +72,12 @@ class BebidaCreate extends Component
     }
 
     public function mount(){
-        usort($this->categorys, function ($a, $b) {
-            return strcmp($a['label'], $b['label']);
+        $this->categories = Categoria::where('destino', 'bebidas')->get()->toArray();
+
+        usort($this->categories, function ($a, $b) {
+            return strcmp($a['name'], $b['name']);
         });
-        $this->category = $this->categorys[0]['value'];
+        $this->category = $this->categories[0]['name'];
     }
 
     public function render()

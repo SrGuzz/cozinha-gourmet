@@ -4,6 +4,7 @@
             <x-input 
                 label="Nome" 
                 wire:model="name"
+                class="border-red-500 focus:border-red-500 focus:outline-orange-500"
             />
             <x-radio
                 label="Destino"
@@ -12,7 +13,7 @@
                 option-label="label"
                 wire:model="destino"
                 hint="Selecione o destino da categoria"
-                class="btn-sm" 
+                class="btn-sm border-red-500 focus:border-red-500 focus:outline-orange-500" 
             />
             <x-slot:actions>
                 <x-button 
