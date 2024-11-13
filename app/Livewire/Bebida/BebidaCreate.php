@@ -34,7 +34,7 @@ class BebidaCreate extends Component
             'name' => $this->name,
             'value' => $this->value,
             'photo' => '/storage' . '/' . $path,
-            'category' => $this->category,
+            'category_id' => $this->category,
         ];
 
         Bebida::create($prato);
@@ -43,7 +43,7 @@ class BebidaCreate extends Component
 
     public function cancel(){
         $this->reset();
-        $this->category = $this->categories[0]['name'];
+        $this->category = $this->categories[0]['id'];
     }
 
     public function rules(){
@@ -77,7 +77,7 @@ class BebidaCreate extends Component
         usort($this->categories, function ($a, $b) {
             return strcmp($a['name'], $b['name']);
         });
-        $this->category = $this->categories[0]['name'];
+        $this->category = $this->categories[0]['id'];
     }
 
     public function render()

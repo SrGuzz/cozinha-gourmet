@@ -18,8 +18,6 @@
             label="Categoria" 
             icon="o-link" 
             :options="$categories" 
-            option-value="name"
-            option-label="name"
             wire:model="category"
             class="border-red-500 focus:border-red-500 focus:outline-orange-500" 
         />

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->float('value');
             $table->string('photo');
             $table->unsignedBigInteger('category_id');
+            $table->boolean('active')->default(1);
             $table->timestamps();
 
             $table->foreign('category_id') 
